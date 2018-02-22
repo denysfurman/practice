@@ -14,14 +14,7 @@ var gulp          = require('gulp'),
 
 gulp.task('js', function() {
 	return gulp.src([
-		'app/libs/jquery/dist/jquery.min.js',
-        'app/libs/owl-carousel/owl.carousel.min.js',
-        'app/libs/form_style/jquery.formstyler.js',
-        'app/libs/waypoints/waypoints.min.js',
-        'app/libs/fancybox/jquery.fancybox.min.js',
-        'app/libs/animate/animate-css.js',
 
-        'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
 	// .pipe(uglify()) // Mifify js (opt.)
