@@ -1,14 +1,15 @@
 @import "vars"
 @import "fonts"
 @import "libs"
-
+@import "header"
 ::placeholder
 	color: #666
 
 ::selection
 	background-color: $accent
 	color: #fff
-
+*
+	box-sizing: border-box!important
 html, body
 	height: 100%
 
@@ -19,6 +20,7 @@ body
 	line-height: 1.65
 	font-family: $default-font
 	overflow-x: hidden
+	box-sizing: border-box!important
 	input, textarea
 			border: #666 1px solid
 			outline: none
@@ -34,6 +36,45 @@ body
 
 .text-center
 	text-align: center
+a
+	text-decoration: none
+	transition: all 0.2s ease
+	outline: none!important
+	color: #000
+
+	&:hover, &:active, &:focus
+		text-decoration: none
+		color: #959595
+		-moz-transition: all 0.2s ease
+		-webkit-transition: all 0.2s ease
+		transition: all 0.2s ease
+		outline: none!important
+p
+	-webkit-margin-before: 0
+	-webkit-margin-after: 0
+
+
+ul, li
+	list-style: none
+
+	-webkit-margin-before: 0
+	-webkit-margin-after: 0
+	-webkit-margin-start: 0
+	-webkit-margin-end: 0
+	-webkit-padding-start: 0
+	padding: 0
+	margin: 0
+
+
+.about
+	height: 500px
+	width: 100%
+
+	background: url("../img/main_bg.jpg") no-repeat  center
+	background-size: cover
+	display: inline-block
+
+
 
 
 @import "media" // Always at the end
