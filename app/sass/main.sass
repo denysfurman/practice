@@ -10,7 +10,7 @@
 	background-color: $accent
 	color: #fff
 *
-	box-sizing: border-box!important
+	box-sizing: border-box
 html, body
 	height: 100%
 
@@ -21,7 +21,8 @@ body
 	line-height: 1.45
 	font-family: $default-font
 	overflow-x: hidden
-	box-sizing: border-box!important
+	box-sizing: border-box
+	color: #2f3131
 	background: url("../img/body_bg.jpg") repeat  center
 
 	input, textarea
@@ -68,7 +69,14 @@ ul, li
 	padding: 0
 	margin: 0
 
-
+.section_title
+	text-transform: uppercase
+	font-size: 36px
+	font-family: "Cuprum",serif
+	color: #2f3131
+	text-align: center
+	margin-bottom: 40px
+	line-height: 36px
 .about
 	height: 500px
 	width: 100%
@@ -91,7 +99,7 @@ ul, li
 		box-shadow: inset 0 4px 0 #43aa26
 		padding: 25px 20px 50px 30px
 		.title
-			font-family: "Cuprum",Arial
+			font-family: "Cuprum",serif
 			font-size: 18px
 			text-transform: uppercase
 		p
@@ -158,12 +166,12 @@ ul, li
 	background: url("../img/timer_bg.jpg") no-repeat  center
 	background-size: cover
 	position: relative
-	margin-bottom: 300px
+
 	.person_img
 		margin-left: -40px
 		margin-top: 20px
 	.title
-		font-family: "Cuprum",Arial
+		font-family: "Cuprum",serif
 		font-weight: 700
 		font-size: 36px
 		text-transform: uppercase
@@ -187,7 +195,7 @@ ul, li
 
 		.timer_item
 			display: inline-block
-			margin-right: 20px
+			margin-right: 17px
 			width: 85px
 			height: 100px
 			background-color: white
@@ -196,7 +204,7 @@ ul, li
 			font-size: 56px
 			color: #43aa26
 			text-align: center
-			font-family: "Cuprum",Arial
+			font-family: "Cuprum",serif
 			font-weight: 700
 			display: block
 			margin-top: 0px
@@ -206,18 +214,228 @@ ul, li
 			font-size: 14px
 			color: #2f3131
 			text-align: center
+			line-height: 14px
+
+.catalog
+	margin-bottom: 200px
+	padding: 35px 0
+	.catalog_tabs_wrap
+		width: 100%
+		display: inline-block
+		margin-top: 4px
+
+		.tabs_main
+			display: table
+			margin: 0 auto
+			margin-bottom: 49px
+			box-shadow: -0.5px 0.8px 2px rgba(0, 0, 0, 0.05)
+
+
+			li
+				display: inline-block
+				float: left
+				margin-right: 1px
+
+
+				a
+					font-size: 16px
+					background-color: #fff
+					color: #2f3131
+					padding: 9px 23px
+					text-decoration: none
+					font-weight: 700
+					border: 2px solid #fff
+					&:hover
+						border: 2px solid #43aa26
+						color: #43aa26
+					&.active
+						color: #43aa26
+						border: 2px solid #43aa26
+
+
+	.catalog_slider
+
+		position: relative
+		z-index: 2
+		width: 100%
 
 
 
 
+		.owl-prev
+
+			position: absolute
+
+			font-size: 30px
+			line-height: 30px
+			text-align: center
+
+			left: -44px
+			top: calc(50% - 15px)
+
+			&:hover
+				color: #44ab27
+
+
+		.owl-next
+
+			position: absolute
+
+			font-size: 30px
+			text-align: center
+			line-height: 30px
+			right: -44px
+			top: calc(50% - 15px)
+
+			&:hover
+				color: #44ab27
+	.item
+		width: 270px
+		height: 475px
+		background-color: white
+		box-shadow: -0.5px 0.8px 2px rgba(0, 0, 0, 0.05)
+		display: inline-block
+		padding: 20px
+
+		.title
+			font-size: 16px
+			font-weight: 700
+			color: #2f3131
+			text-align: center
+			height: 40px
+			line-height: 1.2
+			position: relative
+			&:before
+				content: ""
+				position: absolute
+				width: 59px
+				height: 3px
+				display: inline-block
+				background-color: #43aa26
+				bottom: 0px
+				left: calc(50% - 30px)
+		.catalog_slider_price
+			p
+				font-size: 36px
+				margin: 20px 0
+				font-family: "Cuprum",serif
+				font-weight: 700
+				line-height: 36px
+
+				text-align: center
+
+				span
+					font-family: 'Roboto', serif
+					font-weight: 700
+					font-size: 16px
+		.button
+
+			width: 193px
+			height: 38px
+			background-color: #43aa26
+			text-align: center
+			box-shadow: inset 0 -3px 0 #2c8a12
+			color: #fff
+			font-size: 18px
+			font-family: "Cuprum",serif
+			text-transform: uppercase
+			line-height: 34px
+			margin: 0 auto
+			display: table
+			border: 2px solid #43aa26
+			border-bottom: none
+
+			&:hover
+				background-color: #fff
+				color: #2c8a12
+				border: 2px solid #43aa26
+				box-shadow: none
+				height: 34px
+				line-height: 34px
 
 
 
 
+		.catalog_slider_gall
+			display: inline-block
+			width: 100%
+			margin-bottom: 22px
+			a
+				display: inline-block
+				width: 100%
+			.catalog_slider_gall_main_foto
+				margin-bottom: 15px
+				img
+					width: 100%
+					height: 180px
+					object-fit: cover
+			.catalog_slider_gall_main_all_foto
+				display: flex
+				flex-direction: row
+				flex-wrap: nowrap
+				justify-content: space-between
+				align-content: center
+				align-items: center
+				a
+					width: 65px
+					&:hover
+						img
+							transform: scale(1.1)
+
+				img
+					width: 65px
+					height: 45px
+					object-fit: cover
+					margin: 0!important
+
+					transition: all 0.2s ease
+.video
+	margin: 100px 0
+
+.scrolls
+	overflow-x: scroll
+	overflow-y: hidden
+	white-space: nowrap
+	padding-bottom: 10px
+	img
+		display: inline-block
+		margin-right: 15px
+	&::-webkit-scrollbar
+		height: 5px
+		background-color: #eee
+	&::-webkit-scrollbar-track
+		background: #43aa26
+		border-radius: 20px
+	&::-webkit-scrollbar-thumb
+		background: url("../img/scroll.png") #FFffff
+		border-radius: 0px
+		position: relative
 
 
 
 
+.tooltip
+	position: absolute
+	left: 0
+	background: silver
+	border-left: dotted 2px orange
+	padding: 2px
+	width: 600px
+	text-align: center
+
+input[type=range]
+	margin-top: 50px
+	width: 100%
+	&::-webkit-slider-thumb:after
+		content: ''
+		width: 100px
+		background: transparent
+		color: #000
+		border-left: dotted 2px orange
+		pointer-events: none
+		padding: 50px
+		position: relative
+		top: 50px
 
 
 

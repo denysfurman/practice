@@ -13,6 +13,58 @@ $(function() {
 
     });
 
+    //------tabs
+    $('.tabgroup > div').hide();
+    $('.tabgroup > div:first-of-type').show();
+    $('.tabs_main a').click(function(e){
+        e.preventDefault();
+        var $this = $(this),
+            tabgroup = '#'+$this.parents('.tabs_main').data('tabgroup'),
+            others = $this.closest('li').siblings().children('a'),
+            target = $this.attr('href');
+        others.removeClass('active');
+        $this.addClass('active');
+        $(tabgroup).children('div').hide();
+        $(target).show();
+
+    })
+
+    //galerry
+    $(".fancybox").fancybox();
+
+
+
+    //catalog slider
+    $('.catalog_slider').owlCarousel({
+        loop:true,
+        margin:30,
+        nav:true,
+        navText:[
+            "<i class='fa fa-angle-left '></i>",
+            "<i class='fa fa-angle-right '></i>"
+        ],
+        // autoplay:true,
+        // autoplayTimeout:5000,
+        responsive:{
+            0:{
+                items:1
+            },
+            480:{
+                items:1
+            },
+            767:{
+                items:2
+            },
+            1000:{
+                items:3
+            },
+
+            1400:{
+                items:4
+            }
+        }
+    });
+
     //timer
     var timer;
 
@@ -52,4 +104,15 @@ $(function() {
     }
 
 
+
 });
+
+function getScrollbarWidth() {
+    var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:200px;left:200px;"><div style="height:100px;"></div>');
+    $('.video').append(div);
+    var w1 = $('div', div).innerWidth();
+    div.css('overflow-y', 'scroll');
+    var w2 = $('div', div).innerWidth();
+    $(div).remove();
+    return (w1 - w2);
+}
