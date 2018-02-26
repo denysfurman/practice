@@ -2,7 +2,7 @@
   "name": "optimizedhtml",
   "version": "4.0.1",
   "description": "OptimizedHTML 4 - Start HTML Template",
-  "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

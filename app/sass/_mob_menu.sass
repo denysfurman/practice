@@ -1,0 +1,311 @@
+.cd-img-replace
+  replace text with a background-image
+  display: inline-block
+  overflow: hidden
+  text-indent: 100%
+  white-space: nowrap
+
+.overflow-hidden
+  overflow: hidden
+
+
+
+.cd-main-content
+
+  min-height: 100%
+  position: relative
+  background-color: #f5f4e9
+  z-index: 2
+  padding-top: 50px
+
+  -webkit-transform: translateZ(0)
+  -webkit-backface-visibility: hidden
+  -webkit-transition-property: -webkit-transform
+  -moz-transition-property: -moz-transform
+  transition-property: transform
+
+  &.lateral-menu-is-open
+
+    -webkit-transform: translateX(-260px)
+    -moz-transform: translateX(-260px)
+    -ms-transform: translateX(-260px)
+    -o-transform: translateX(-260px)
+    transform: translateX(-260px)
+
+@media only screen and (min-width: 768px)
+  .cd-main-content
+    padding-top: 70px
+
+@media only screen and (min-width: 768px)
+  #cd-logo
+    margin: 22px 0 0 30px
+
+#cd-top-nav
+  position: absolute
+  top: 0
+  right: 120px
+  height: 100%
+  display: none
+  ul
+    height: 100%
+    padding-top: 18px
+  li
+    display: inline-block
+    margin-right: 1em
+  a
+    display: inline-block
+    padding: .5em
+    color: #FFF
+    text-transform: uppercase
+    font-weight: 600
+    &.current
+      background-color: #242e30
+
+.no-touch #cd-top-nav a:hover
+  color: rgba(255, 255, 255, 0.7)
+
+@media only screen and (min-width: 768px)
+  #cd-top-nav
+    display: block
+
+#cd-menu-trigger
+  right: 0
+  top: 11px
+  position: absolute
+  height: 50px
+  width: 50px
+  display: none
+  .cd-menu-icon
+
+    display: inline-block
+    position: absolute
+    left: 50%
+    top: 50%
+    bottom: auto
+    right: auto
+
+    transform: translateX(-50%) translateY(-50%)
+    width: 18px
+    height: 2px
+    background-color: #000
+
+    &::before, &:after
+      content: ''
+      width: 100%
+      height: 100%
+      position: absolute
+      background-color: inherit
+      left: 0
+    &::before
+      bottom: 5px
+    &::after
+      top: 5px
+  &.is-clicked .cd-menu-icon
+    background-color: rgba(255, 255, 255, 0)
+    &::before, &::after
+      background-color: #0a0b0a
+    &::before
+      bottom: 0
+
+      transform: rotate(45deg)
+    &::after
+      top: 0
+
+      transform: rotate(-45deg)
+
+@media only screen and (min-width: 768px)
+  #cd-menu-trigger
+    .cd-menu-text
+      display: inline-block
+      line-height: 70px
+    .cd-menu-icon
+      left: auto
+      right: 1.25em
+
+      transform: translateX(0)
+
+#cd-lateral-nav
+  position: fixed
+  height: 100%
+  right: 0
+  top: 0
+  visibility: hidden
+
+  z-index: 1200
+  width: 100%
+  background-color: #f8f8f8
+  overflow-y: auto
+
+  -webkit-transform: translateZ(0)
+  -webkit-backface-visibility: hidden
+
+
+  -webkit-transform: translateX(80px)
+  -moz-transform: translateX(80px)
+  -ms-transform: translateX(80px)
+  -o-transform: translateX(80px)
+  transform: translateX(80px)
+  transition: transform 0.6s ease
+  .cd-navigation
+    margin: 10px 0 16px
+  .main_menu_mob_wr
+
+
+
+
+    .sub-menu
+      padding: 0
+      position: relative
+      display: none
+      &.no_after
+        &::before,&::after
+          display: none
+
+        a
+
+          text-decoration-color: rgba(0, 0, 0, 0.3)
+          line-height: 19px
+
+      ul
+        display: inline-block
+        max-height: 166px
+        overflow-y: auto
+        width: 100%
+
+
+
+      a
+        color: #b61313
+        text-decoration-color: #b613136b
+        line-height: 19px
+        font-size: 14px
+  a.current
+    background-color: #3a4a4d
+    color: #FFF
+  &.lateral-menu-is-open
+    -webkit-transform: translateX(0)
+    -moz-transform: translateX(0)
+    -ms-transform: translateX(0)
+    -o-transform: translateX(0)
+    transform: translateX(0)
+    visibility: visible
+    -webkit-overflow-scrolling: touch
+    box-shadow: -4px -4px 38px rgba(0, 0, 0, 0.2)
+    transition: transform 0.6s ease
+
+
+
+
+@media only screen and (min-width: 768px)
+  #cd-lateral-nav .cd-navigation
+    margin: 20px 0
+
+
+
+
+
+#cd-lateral-nav
+
+  a.cd-lateral-nav_close
+    display: inline-block
+    color: #c6cad2
+    float: right
+    cursor: pointer
+    margin-top: 5px
+  .header_control_block
+    display: inline-block
+    padding: 20px
+    width: 100%
+
+
+#cd-lateral-nav
+  padding-bottom: 70px
+  .main_menu_mob_wr
+    display: inline-block
+    width: 100%
+
+    a
+      display: inline-block
+      line-height: 32px
+      padding: 0 15px 0 21px
+      color: #000
+      font-size: 16px
+      text-transform: capitalize
+      margin-bottom: 5px
+      text-decoration-line: underline
+      text-decoration-color: #999
+
+
+  .mob_sub_navigation
+    display: block
+    margin-top: 20px
+    a
+      display: block
+      line-height: 2em
+      padding: 0 15px 0 21px
+      font-size: 13px
+      font-weight: bold
+      color: #9da5b4
+      text-transform: uppercase
+      text-decoration: underline
+  .sub-menu
+    margin-bottom: 20px
+  .open_account
+    display: block
+    float: left
+  a
+    transition: none!important
+.open_search
+  float: right
+
+  margin-right: 17px
+  margin-top: 3px
+
+
+.mobile_search
+  display: none
+  width: 100%
+  position: absolute
+  margin-top: 5px
+  height: calc(100vh - 100px)
+  background-color: #f8f8f8
+  z-index: 1
+
+  input
+    display: inline-block
+    margin: 0
+    width: calc(100% - 90px)
+    float: left
+    border-radius: 0!important
+  button
+    display: inline-block
+    margin: 0
+    width: 90px
+    float: left
+
+#cd-lateral-nav .open_account
+
+  margin-top: 8px
+.open_sub
+  padding-left: 20px
+
+  display: block
+  position: relative
+  top: -5px
+  &.active
+    top: 0
+
+    margin-bottom: 20px
+    width: 100%
+    text-align: left
+    img
+
+      transform: rotateZ(180deg)
+
+  img
+    width: 12px
+    height: 10px
+
+
+#cd-lateral-nav .main_menu_mob_wr .sub-menu ul.active
+  max-height: 100%
