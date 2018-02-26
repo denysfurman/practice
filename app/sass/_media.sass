@@ -1,19 +1,228 @@
 @import "vars"
 
 
-/*==========  Desktop First  ==========*/
+@media only screen and (max-width: 1250px)
+  .header_nav ul li
+    a
+      border-left: none
+      padding: 0
+    &:last-child
+      border-right: none
+    a:hover
+      background-color: #44ab27
+      color: #fff
+  header
+    .header_descr
+      display: none
+    .header_phone
+      margin-left: 100px
+  .how_used
+    .how_used_img
+      display: none
+    .how_used_item
+      width: 100%
+  .catalog .item
+    width: 100%
+  .timer_section .person_img
+    img
+      width: 100%
+    margin-left: 0px
+    margin-top: 20px
+    position: absolute
+    bottom: 0
+  #timer
+    margin-bottom: 40px
+  .timer_section
+    min-height: inherit
 
-+media-breakpoint-down(xl)
-+media-breakpoint-down(lg)
-+media-breakpoint-down(md)
-+media-breakpoint-down(sm)
-+media-breakpoint-down(xs)
+/* Medium Devices, Desktops
+@media only screen and (max-width: 992px)
+  header .header_phone
+    margin-left: 39px
+    font-size: 19px
+  .timer_section .person_img
+    margin-left: 0px
+    margin-top: 0
+    position: relative
+    bottom: 0
+  .catalog .catalog_slider
+    .owl-next
+      right: -25px
+    .owl-prev
+      left: -25px
+  .header_nav ul li a
+    font-size: 14px
+  .about
+    height: 400px
 
+/* Small Devices, Tablets
+@media only screen and (max-width: 767px)
+  /*Disable Animation on Mobile Devices
+  .animated
+    /*CSS transitions
+    -o-transition-property: none !important
+    -moz-transition-property: none !important
+    -ms-transition-property: none !important
+    -webkit-transition-property: none !important
+    transition-property: none !important
+    /*CSS transforms
+    -o-transform: none !important
+    -moz-transform: none !important
+    -ms-transform: none !important
+    -webkit-transform: none !important
+    transform: none !important
+    /*CSS animations
+    -webkit-animation: none !important
+    -moz-animation: none !important
+    -o-animation: none !important
+    -ms-animation: none !important
+    animation: none !important
+  .header_nav
+    display: none
+  header
+    .header_phone, .header_button
+      display: none
+  .about_slider
+    width: 100%
+    margin-top: 40px
+    margin-bottom: 80px
+  .about
+    height: auto
+    min-height: 300px
+  .how_used .how_used_item
+    h2.title
+      font-size: 25px
+    ul li
+      width: 100%
+      padding-bottom: 0px
+      span
+        position: relative
+        right: inherit
+        bottom: inherit
+        z-index: 2
+        display: table
+        margin: 17px auto 0
+        transform: rotateZ(90deg)
+      .how_used_item_img
+        width: 100%
+        height: 125px
+    width: 100%
+    padding-bottom: 40px
+  .video_item
+    .video_item_text
+      .play_link
+        top: -55px
+      padding-left: 0
+    float: left
+    width: 242px
+    margin-right: 20px
+  .scrollbar, .how_used .how_used_item ul li:before
+    display: none
+  .catalog
+    .item
+      width: 270px
+      margin: 0 auto
+      height: auto
+      display: table
+      padding: 20px
+    .catalog_slider
+      .owl-next, .owl-prev
+        display: none !important
+  .catalog_slider .owl-dots
+    display: inline-block
+    position: absolute
+    left: -webkit-calc(50% - 30px)
+    left: calc(50% - 30px)
+    margin-top: 20px
+    .owl-dot
+      width: 16px
+      height: 16px
+      background-color: #43aa26
+      -webkit-border-radius: 50%
+      border-radius: 50%
+      border: 2px solid #fff
+      display: inline-block
+      float: left
+      margin-right: 5px
+      &.active
+        background-color: #fff
+        border: 2px solid #43aa26
+  .catalog .catalog_tabs_wrap .tabs_main li
+    a
+      font-size: 16px
+      background-color: #fff
+      color: #2f3131
+      padding: 5px
+      text-decoration: none
+      font-weight: 700
+      border: 2px solid #fff
+      width: 100%
+      display: inline-block
+      text-align: center
+    display: inline-block
+    float: left
+    margin-right: 1px
+    width: 100%
+  header .header_logo span
+    font-size: 20px
+  .timer_section #timer .timer_item
+    display: inline-block
+    margin-right: 4px
+    width: 67px
+    height: 96px
+  #cd-menu-trigger
+    display: block
+    right: 0
+    top: 19px
+  #cd-lateral-nav a.cd-lateral-nav_close
+    display: inline-block
+    color: #060606
+    float: right
+    cursor: pointer
+    margin-top: 0
+    font-size: 28px
+  .search_mob
+    font-size: 25px
+    float: right
+    margin-right: 24px
+    position: relative
+    top: 2px
+  .mob_inf
+    background-color: #fff
+    padding: 29px 19px
+    .header_button
+      width: 193px
+      height: 38px
+      background-color: #43aa26
+      text-align: center
+      -webkit-box-shadow: inset 0 -3px 0 #2c8a12
+      box-shadow: inset 0 -3px 0 #2c8a12
+      color: #fff
+      font-size: 18px
+      font-family: Cuprum,serif
+      text-transform: uppercase
+      line-height: 38px
+      margin-top: 10px
+      display: inline-block
+    .header_phone
+      font-size: 26px
+      display: inline-block
+      font-family: Cuprum,serif
+  .catalog
+    margin-bottom: 105px
+  .about_slider
+    .owl-prev, .owl-next
+      display: none !important
 
-/*==========  Mobile First  ==========*/
-
-+media-breakpoint-up(xs)
-+media-breakpoint-up(sm)
-+media-breakpoint-up(md)
-+media-breakpoint-up(lg)
-+media-breakpoint-up(xl)
+/* Extra Small Devices, Phones
+@media only screen and (max-width: 360px)
+  header .header_logo span
+    font-size: 17px
+  .timer_section #timer
+    span
+      font-size: 40px
+    .timer_item
+      display: inline-block
+      margin-right: 4px
+      width: 57px
+      height: 96px
