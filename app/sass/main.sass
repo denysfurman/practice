@@ -9,8 +9,7 @@
 ::selection
 	background-color: $accent
 	color: #fff
-*
-	box-sizing: border-box
+
 html, body
 	height: 100%
 
@@ -36,7 +35,8 @@ body
 .img-responsive
 	display: block
 	max-width: 100%
-	height: auto
+	height: 100%
+	object-fit: cover
 
 .text-center
 	text-align: center
@@ -77,6 +77,108 @@ ul, li
 	text-align: center
 	margin-bottom: 40px
 	line-height: 36px
+
+#loader-wrapper
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 3000
+
+
+	#loader
+		display: block
+		position: relative
+		left: 50%
+		top: 50%
+		width: 150px
+		height: 150px
+		margin: -75px 0 0 -75px
+		border-radius: 50%
+		border: 3px solid transparent
+		border-top-color: #fff
+		z-index: 1001
+		animation: spin 2s linear infinite
+
+		&:before
+			content: ""
+			position: absolute
+			top: 5px
+			left: 5px
+			right: 5px
+			bottom: 5px
+			border-radius: 50%
+			border: 3px solid transparent
+			border-top-color: #fff
+			animation: spin 3s linear infinite
+
+
+		&:after
+			content: ""
+			position: absolute
+			top: 15px
+			right: 15px
+			left: 15px
+			bottom: 15px
+			border-radius: 50%
+			border: 3px solid transparent
+			border-top-color: #fff
+			animation: spin 1.5s linear infinite
+
+
+
+#loader-wrapper .loader-section
+	position: fixed
+	top: 0
+	width: 100%
+	height: 100%
+	background: #43aa26
+	z-index: 1000
+	transform: translateX(0)
+
+
+	#loader-wrapper .loader-section.section-left
+		left: 0
+
+
+	#loader-wrapper .loader-section.section-right
+		right: 0
+
+
+// Animation
+@keyframes spin
+	0%
+		transform: rotate(0deg)
+
+	100%
+		transform: rotate(360deg)
+
+
+
+// Loaded
+.loaded #loader-wrapper .loader-section.section-left
+	transform: translateX(-100%)
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
+
+
+.loaded #loader-wrapper .loader-section.section-right
+	transform: translateX(100%)
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
+
+
+.loaded #loader
+	opacity: 0
+	transition: all 0.3s ease-out
+
+
+.loaded #loader-wrapper
+	visibility: hidden
+	transform: translateY(-100%)
+	transition: all 0.3s 1s ease-out
+
+
+
 .about
 	height: 500px
 	width: 100%
@@ -217,7 +319,7 @@ ul, li
 			line-height: 14px
 
 .catalog
-	margin-bottom: 200px
+	margin-bottom: 50px
 	padding: 35px 0
 	.catalog_tabs_wrap
 		width: 100%
@@ -397,7 +499,7 @@ ul, li
 
 
 .video
-	margin: 100px 0 35px
+	margin: 37px 0 35px
 	.section_title
 		text-align: left
 		margin-bottom: 30px
@@ -439,7 +541,7 @@ ul, li
 			left: 0
 			top: -36px
 			&:hover
-				background: #fff
+				background: linear-gradient(45deg, #fff 0%, #fff 100%)
 				box-shadow: 0 0 27px rgba(0, 0, 0, 0.1)
 				i
 					color: #43aa26
@@ -461,7 +563,7 @@ ul, li
 				text-decoration: underline
 
 			&:hover + .play_link
-				background: #fff
+				background: linear-gradient(45deg, #fff 0%, #fff 100%)
 				box-shadow: 0 0 27px rgba(0, 0, 0, 0.1)
 				i
 					color: #43aa26
@@ -519,7 +621,88 @@ ul, li
 
 
 
+.how_used
+	position: relative
+	margin-top: -95px
+	.how_used_img
+		position: relative
+		display: inline-block
 
+		&:before
+			content: ""
+			display: inline-block
+			position: absolute
+			left: -3px
+			top: -3px
+			background-image: url("../img/used_bord.png")
+			width: 71px
+			height: 68px
+		img
+			width: 480px
+			height: 370px
+			object-fit: cover
 
+	.how_used_item
+		width: calc(100% - 480px)
+		display: inline-block
+		background-color: #fff
+		float: right
+		min-height: 320px
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.1)
+		margin-top: 50px
+		h2.title
+			font-size: 36px
+			text-align: center
+			text-transform: uppercase
+			margin-top: 30px
+			font-family: "Cuprum",serif
+			font-weight: 700
+		ul
+			width: 100%
+			li
+				width: 32.9%
+				display: inline-block
+				position: relative
+				height: 100%
+				padding-bottom: 41px
+				&:last-child
+					&:before
+						display: none
+					p
+						color: #d0d3d8
 
+				&:before
+					content: ""
+					display: inline-block
+					position: absolute
+					right: 0px
+					bottom: -5px
+					background-image: url("../img/shad.png")
+					width: 25px
+					height: 191px
+				.how_used_item_img
+					width: 100%
+					height: 155px
+					display: flex
+					flex-direction: row
+					flex-wrap: nowrap
+					justify-content: center
+					align-content: center
+					align-items: center
+				p
+					text-align: center
+					line-height: 17px
+					color: #2f3131
+				span
+					position: absolute
+					right: -20px
+					bottom: 30px
+					z-index: 2
+
+.tab_prog .img-responsive
+	height: 400px
+	object-fit: cover
+	width: 100%
+
+@import "mob_menu"
 @import "media" // Always at the end
