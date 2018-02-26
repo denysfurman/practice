@@ -59,11 +59,15 @@ $(function() {
                 items:3
             },
 
-            1400:{
+            1200:{
                 items:4
             }
         }
     });
+
+
+
+    $("#container").scrollLeft( 1300 );
 
     //timer
     var timer;
@@ -104,15 +108,35 @@ $(function() {
     }
 
 
+// ssss
+    var $frame  = $('#basic');
+    var $slidee = $frame.children('ul').eq(0);
+    var $wrap   = $frame.parent();
+
+    // Call Sly on frame
+    $frame.sly({
+        horizontal: 1,
+        itemNav: 'basic',
+        smart: 1,
+        activateOn: 'click',
+        mouseDragging: 1,
+        touchDragging: 1,
+        releaseSwing: 1,
+        startAt: 0,
+        scrollBar: $wrap.find('.scrollbar'),
+        scrollBy: 1,
+        activatePageOn: 'click',
+        speed: 300,
+        elasticBounds: 1,
+        dragHandle: 1,
+        dynamicHandle: 1,
+        clickBar: 1,
+    });
+
+
+
+
+
 
 });
 
-function getScrollbarWidth() {
-    var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:200px;left:200px;"><div style="height:100px;"></div>');
-    $('.video').append(div);
-    var w1 = $('div', div).innerWidth();
-    div.css('overflow-y', 'scroll');
-    var w2 = $('div', div).innerWidth();
-    $(div).remove();
-    return (w1 - w2);
-}
