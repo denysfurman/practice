@@ -1,7 +1,8 @@
 @import "vars"
 @import "fonts"
 @import "libs"
-@import "header"
+
+
 
 ::placeholder
 	color: #666
@@ -9,8 +10,7 @@
 ::selection
 	background-color: $accent
 	color: #fff
-*
-	box-sizing: border-box
+
 html, body
 	height: 100%
 
@@ -36,7 +36,8 @@ body
 .img-responsive
 	display: block
 	max-width: 100%
-	height: auto
+	height: 100%
+	object-fit: cover
 
 .text-center
 	text-align: center
@@ -77,6 +78,204 @@ ul, li
 	text-align: center
 	margin-bottom: 40px
 	line-height: 36px
+
+#loader-wrapper
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 3000
+
+
+	#loader
+		display: block
+		position: relative
+		left: 50%
+		top: 50%
+		width: 150px
+		height: 150px
+		margin: -75px 0 0 -75px
+		border-radius: 50%
+		border: 3px solid transparent
+		border-top-color: #fff
+		z-index: 1001
+		animation: spin 2s linear infinite
+
+		&:before
+			content: ""
+			position: absolute
+			top: 5px
+			left: 5px
+			right: 5px
+			bottom: 5px
+			border-radius: 50%
+			border: 3px solid transparent
+			border-top-color: #fff
+			animation: spin 3s linear infinite
+
+
+		&:after
+			content: ""
+			position: absolute
+			top: 15px
+			right: 15px
+			left: 15px
+			bottom: 15px
+			border-radius: 50%
+			border: 3px solid transparent
+			border-top-color: #fff
+			animation: spin 1.5s linear infinite
+
+
+
+#loader-wrapper .loader-section
+	position: fixed
+	top: 0
+	width: 100%
+	height: 100%
+	background: #43aa26
+	z-index: 1000
+	transform: translateX(0)
+
+
+	#loader-wrapper .loader-section.section-left
+		left: 0
+
+
+	#loader-wrapper .loader-section.section-right
+		right: 0
+
+
+// Animation
+@keyframes spin
+	0%
+		transform: rotate(0deg)
+
+	100%
+		transform: rotate(360deg)
+
+
+
+// Loaded
+.loaded #loader-wrapper .loader-section.section-left
+	transform: translateX(-100%)
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
+
+
+.loaded #loader-wrapper .loader-section.section-right
+	transform: translateX(100%)
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
+
+
+.loaded #loader
+	opacity: 0
+	transition: all 0.3s ease-out
+
+
+.loaded #loader-wrapper
+	visibility: hidden
+	transform: translateY(-100%)
+	transition: all 0.3s 1s ease-out
+
+
+
+//	header
+header
+	height: 88px
+	position: relative
+
+	background-color: #fff
+	width: 100%
+	.header_logo
+		display: inline-block
+		a
+			display: inline-block
+		img
+			position: relative
+			top: -6px
+		span
+			font-size: 26px
+			font-weight: 900
+			color: #4f555a
+			margin-left: 7px
+			line-height: 88px
+	.header_descr
+		font-size: 14px
+		display: inline-block
+		margin: auto 90px
+		line-height: 88px
+		position: relative
+		top: -5px
+	.header_phone
+		font-size: 26px
+		display: inline-block
+		font-family: "Cuprum",serif
+		line-height: 88px
+		position: relative
+		top: -1px
+	.header_button
+		float: right
+		width: 193px
+		height: 38px
+		background-color: #43aa26
+		text-align: center
+		box-shadow: inset 0 -3px 0 #2c8a12
+		color: #fff
+		font-size: 18px
+		font-family: "Cuprum",serif
+		text-transform: uppercase
+		line-height: 38px
+		margin-top: 25px
+		&:hover
+			background-color: #2c8a12
+			color: #fff
+		i
+			margin-right: 3px
+			position: relative
+			top: -1px
+
+.header_nav
+	width: 100%
+	background-color: #44ab27
+	display: inline-block
+	box-shadow: -1.1px 1.7px 9px rgba(0, 0, 0, 0.1)
+	ul
+		display: flex
+		flex-direction: row
+		flex-wrap: nowrap
+		justify-content: space-between
+		align-content: center
+		align-items: center
+		li
+			&:last-child
+				border-right: 1px solid #76c66a
+				a
+					padding: 0 10px
+					&:hover
+						background-color: #2c8a12
+
+
+
+			a
+				font-size: 18px
+				color: #fff
+				line-height: 47px
+				text-transform: uppercase
+				font-family: "Cuprum",serif
+				text-align: center
+				display: inline-block
+				width: 100%
+				height: 47px
+				text-align: center
+				border-left: 1px solid #76c66a
+				padding: 0 28.65px
+				&:hover
+					background-color: #FFffff
+					color: #44ab27
+
+
+
 .about
 	height: 500px
 	width: 100%
@@ -217,7 +416,7 @@ ul, li
 			line-height: 14px
 
 .catalog
-	margin-bottom: 200px
+	margin-bottom: 50px
 	padding: 35px 0
 	.catalog_tabs_wrap
 		width: 100%
@@ -397,7 +596,7 @@ ul, li
 
 
 .video
-	margin: 100px 0 35px
+	margin: 37px 0 35px
 	.section_title
 		text-align: left
 		margin-bottom: 30px
@@ -439,7 +638,7 @@ ul, li
 			left: 0
 			top: -36px
 			&:hover
-				background: #fff
+				background: linear-gradient(45deg, #fff 0%, #fff 100%)
 				box-shadow: 0 0 27px rgba(0, 0, 0, 0.1)
 				i
 					color: #43aa26
@@ -461,7 +660,7 @@ ul, li
 				text-decoration: underline
 
 			&:hover + .play_link
-				background: #fff
+				background: linear-gradient(45deg, #fff 0%, #fff 100%)
 				box-shadow: 0 0 27px rgba(0, 0, 0, 0.1)
 				i
 					color: #43aa26
@@ -519,7 +718,423 @@ ul, li
 
 
 
+.how_used
+	position: relative
+	margin-top: -95px
+	.how_used_img
+		position: relative
+		display: inline-block
+
+		&:before
+			content: ""
+			display: inline-block
+			position: absolute
+			left: -3px
+			top: -3px
+			background-image: url("../img/used_bord.png")
+			width: 71px
+			height: 68px
+		img
+			width: 480px
+			height: 370px
+			object-fit: cover
+
+	.how_used_item
+		width: calc(100% - 480px)
+		display: inline-block
+		background-color: #fff
+		float: right
+		min-height: 320px
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.1)
+		margin-top: 50px
+		h2.title
+			font-size: 36px
+			text-align: center
+			text-transform: uppercase
+			margin-top: 30px
+			font-family: "Cuprum",serif
+			font-weight: 700
+		ul
+			width: 100%
+			li
+				width: 32.9%
+				display: inline-block
+				position: relative
+				height: 100%
+				padding-bottom: 41px
+				&:last-child
+					&:before
+						display: none
+					p
+						color: #d0d3d8
+
+				&:before
+					content: ""
+					display: inline-block
+					position: absolute
+					right: 0px
+					bottom: -5px
+					background-image: url("../img/shad.png")
+					width: 25px
+					height: 191px
+				.how_used_item_img
+					width: 100%
+					height: 155px
+					display: flex
+					flex-direction: row
+					flex-wrap: nowrap
+					justify-content: center
+					align-content: center
+					align-items: center
+				p
+					text-align: center
+					line-height: 17px
+					color: #2f3131
+				span
+					position: absolute
+					right: -20px
+					bottom: 30px
+					z-index: 2
+
+.tab_prog .img-responsive
+	height: 400px
+	object-fit: cover
+	width: 100%
+
+.cd-img-replace
+	replace text with a background-image
+	display: inline-block
+	overflow: hidden
+	text-indent: 100%
+	white-space: nowrap
+
+.overflow-hidden
+	overflow: hidden
 
 
+
+.cd-main-content
+
+	min-height: 100%
+	position: relative
+	background-color: #f5f4e9
+	z-index: 2
+	padding-top: 50px
+
+	-webkit-transform: translateZ(0)
+	-webkit-backface-visibility: hidden
+	-webkit-transition-property: -webkit-transform
+	-moz-transition-property: -moz-transform
+	transition-property: transform
+
+	&.lateral-menu-is-open
+
+		-webkit-transform: translateX(-260px)
+		-moz-transform: translateX(-260px)
+		-ms-transform: translateX(-260px)
+		-o-transform: translateX(-260px)
+		transform: translateX(-260px)
+
+@media only screen and (min-width: 768px)
+	.cd-main-content
+		padding-top: 70px
+
+@media only screen and (min-width: 768px)
+	#cd-logo
+		margin: 22px 0 0 30px
+
+#cd-top-nav
+	position: absolute
+	top: 0
+	right: 120px
+	height: 100%
+	display: none
+	ul
+		height: 100%
+		padding-top: 18px
+	li
+		display: inline-block
+		margin-right: 1em
+	a
+		display: inline-block
+		padding: .5em
+		color: #FFF
+		text-transform: uppercase
+		font-weight: 600
+		&.current
+			background-color: #242e30
+
+.no-touch #cd-top-nav a:hover
+	color: rgba(255, 255, 255, 0.7)
+
+@media only screen and (min-width: 768px)
+	#cd-top-nav
+		display: block
+
+#cd-menu-trigger
+	right: 0
+	top: 11px
+	position: absolute
+	height: 50px
+	width: 50px
+	display: none
+	.cd-menu-icon
+
+		display: inline-block
+		position: absolute
+		left: 50%
+		top: 50%
+		bottom: auto
+		right: auto
+
+		transform: translateX(-50%) translateY(-50%)
+		width: 18px
+		height: 2px
+		background-color: #000
+
+		&::before, &:after
+			content: ''
+			width: 100%
+			height: 100%
+			position: absolute
+			background-color: inherit
+			left: 0
+		&::before
+			bottom: 5px
+		&::after
+			top: 5px
+	&.is-clicked .cd-menu-icon
+		background-color: rgba(255, 255, 255, 0)
+		&::before, &::after
+			background-color: #0a0b0a
+		&::before
+			bottom: 0
+
+			transform: rotate(45deg)
+		&::after
+			top: 0
+
+			transform: rotate(-45deg)
+
+@media only screen and (min-width: 768px)
+	#cd-menu-trigger
+		.cd-menu-text
+			display: inline-block
+			line-height: 70px
+		.cd-menu-icon
+			left: auto
+			right: 1.25em
+
+			transform: translateX(0)
+
+#cd-lateral-nav
+	position: fixed
+	height: 100%
+	right: 0
+	top: 0
+	visibility: hidden
+
+	z-index: 1200
+	width: 100%
+	background-color: #f8f8f8
+	overflow-y: auto
+
+	-webkit-transform: translateZ(0)
+	-webkit-backface-visibility: hidden
+
+
+	-webkit-transform: translateX(80px)
+	-moz-transform: translateX(80px)
+	-ms-transform: translateX(80px)
+	-o-transform: translateX(80px)
+	transform: translateX(80px)
+	transition: transform 0.6s ease
+	.cd-navigation
+		margin: 10px 0 16px
+	.main_menu_mob_wr
+
+
+
+
+		.sub-menu
+			padding: 0
+			position: relative
+			display: none
+			&.no_after
+				&::before,&::after
+					display: none
+
+				a
+
+					text-decoration-color: rgba(0, 0, 0, 0.3)
+					line-height: 19px
+
+			ul
+				display: inline-block
+				max-height: 166px
+				overflow-y: auto
+				width: 100%
+
+
+
+			a
+				color: #b61313
+				text-decoration-color: #b613136b
+				line-height: 19px
+				font-size: 14px
+	a.current
+		background-color: #3a4a4d
+		color: #FFF
+	&.lateral-menu-is-open
+		-webkit-transform: translateX(0)
+		-moz-transform: translateX(0)
+		-ms-transform: translateX(0)
+		-o-transform: translateX(0)
+		transform: translateX(0)
+		visibility: visible
+		-webkit-overflow-scrolling: touch
+		box-shadow: -4px -4px 38px rgba(0, 0, 0, 0.2)
+		transition: transform 0.6s ease
+
+	.item-has-children > a
+		position: relative
+		text-transform: uppercase
+		font-weight: 400
+		text-decoration-line: none!important
+
+		&::after
+			content: ''
+			display: block
+			height: 11px
+			width: 12px
+			position: absolute
+			top: 52%
+			bottom: auto
+
+			transform: translateY(-50%)
+			right: -10px
+			background: url("../img/next.svg") no-repeat center center
+
+
+			transition-property: transform
+
+		&.submenu-open::after
+			transform: translateY(-60%) rotate(180deg)
+
+
+
+@media only screen and (min-width: 768px)
+	#cd-lateral-nav .cd-navigation
+		margin: 20px 0
+
+
+
+
+
+#cd-lateral-nav
+
+	a.cd-lateral-nav_close
+		display: inline-block
+		color: #c6cad2
+		float: right
+		cursor: pointer
+		margin-top: 5px
+	.header_control_block
+		display: inline-block
+		padding: 20px
+		width: 100%
+
+
+#cd-lateral-nav
+	padding-bottom: 70px
+	.main_menu_mob_wr
+		display: inline-block
+		width: 100%
+
+		a
+			display: inline-block
+			line-height: 32px
+			padding: 0 15px 0 21px
+			color: #000
+			font-size: 16px
+			text-transform: capitalize
+			margin-bottom: 5px
+			text-decoration-line: underline
+			text-decoration-color: #999
+
+
+	.mob_sub_navigation
+		display: block
+		margin-top: 20px
+		a
+			display: block
+			line-height: 2em
+			padding: 0 15px 0 21px
+			font-size: 13px
+			font-weight: bold
+			color: #9da5b4
+			text-transform: uppercase
+			text-decoration: underline
+	.sub-menu
+		margin-bottom: 20px
+	.open_account
+		display: block
+		float: left
+	a
+		transition: none!important
+.open_search
+	float: right
+
+	margin-right: 17px
+	margin-top: 3px
+
+
+.mobile_search
+	display: none
+	width: 100%
+	position: absolute
+	margin-top: 5px
+	height: calc(100vh - 100px)
+	background-color: #f8f8f8
+	z-index: 1
+
+	input
+		display: inline-block
+		margin: 0
+		width: calc(100% - 90px)
+		float: left
+		border-radius: 0!important
+	button
+		display: inline-block
+		margin: 0
+		width: 90px
+		float: left
+
+#cd-lateral-nav .open_account
+
+	margin-top: 8px
+.open_sub
+	padding-left: 20px
+
+	display: block
+	position: relative
+	top: -5px
+	&.active
+		top: 0
+
+		margin-bottom: 20px
+		width: 100%
+		text-align: left
+		img
+
+			transform: rotateZ(180deg)
+
+	img
+		width: 12px
+		height: 10px
+
+
+#cd-lateral-nav .main_menu_mob_wr .sub-menu ul.active
+	max-height: 100%
 
 @import "media" // Always at the end
